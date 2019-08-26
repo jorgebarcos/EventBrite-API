@@ -18,7 +18,14 @@ document.getElementById('buscarBtn').addEventListener('click', (e) => {
 	if (textoBuscador !== '') {
 		// Cuando si hay una busqueda
 		eventbrite.obtenerEventos(textoBuscador, categoriaSeleccionada).then((eventos) => {
-			console.log(eventos);
+			if (eventos.eventos.events.length > 0) {
+				// Si hay eventos, mostrar el resultado
+				ui.limpiarResultados();
+				ui.mostrarEventos(eventos.eventos);
+			} else {
+				// No hay eventos enviar una alerta
+				ui.mostrarMensaje('No hay resultados', 'alert alert-danger mt-4');
+			}
 		});
 	} else {
 		// Mostrar mensaje para que imprima algo
