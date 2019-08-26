@@ -1,5 +1,5 @@
 // Instanciar ambas clases
-const eventBrite = new EventBrite();
+const eventbrite = new EventBrite();
 const ui = new Interfaz();
 
 // Listener al buscador
@@ -16,7 +16,10 @@ document.getElementById('buscarBtn').addEventListener('click', (e) => {
 
 	// Revisar que haya algo escrito en el buscador
 	if (textoBuscador !== '') {
-		console.log('Buscado...');
+		// Cuando si hay una busqueda
+		eventbrite.obtenerEventos(textoBuscador, categoriaSeleccionada).then((eventos) => {
+			console.log(eventos);
+		});
 	} else {
 		// Mostrar mensaje para que imprima algo
 		ui.mostrarMensaje('Escribe algo en el buscador', 'alert alert-danger mt-4');

@@ -13,7 +13,7 @@ class Interfaz {
 	}
 	// Imprimir categorias
 	imprimirCategorias() {
-		const listaCategorias = eventBrite.obtenerCategorias().then((categorias) => {
+		const listaCategorias = eventbrite.obtenerCategorias().then((categorias) => {
 			const cats = categorias.categorias.categories;
 			// Seleccionar el select de categorias
 			const selectCategoria = document.getElementById('listado-categorias');
